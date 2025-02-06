@@ -1,4 +1,4 @@
-function sayHello() {
-    console.log('Hello, world!')
+function sayHello(string) {
+    console.log(`Hello, ${string}!`)
 }
-sayHello()
+sayHello('world')
