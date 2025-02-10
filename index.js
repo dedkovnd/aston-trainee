@@ -4,7 +4,7 @@ let str = 'string';
 let num = 12;
 
 let isTrue = true;
-
+// А также функции String,Number etc. без оператора new.
 let anyValue = null;
 
 let anyVar;
@@ -37,3 +37,5 @@ console.log(typeof Object) //function
 console.log(typeof Math) //object
 console.log(new String('foo')=='foo') //true
 console.log(new String('foo')==='foo') //false
+
+//PR?
