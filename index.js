@@ -1,39 +1,50 @@
-//#5
-let str = 'string';
+//#1
+const innerObject = {};
+const middleArray = [1,2,3,innerObject ];
 
-let num = 12;
+const workingObjectLitral = {
+    a: middleArray 
+ };
 
-let isTrue = true;
+const workingObjectConstructor = new Object();
+workingObjectConstructor.a = middleArray;
 
-let anyValue = null;
+const workingObjectAssign = Object.assign({}, { a: middleArray })
 
-let anyVar;
+const workingObjectCreate = Object.create(null);
+workingObjectCreate.a = middleArray
+//#2
+const workingObject = {
+    a: middleArray 
+ };
 
-const newSymbol = Symbol('string')
+const copy1 = Object.assign({}, workingObject);
 
-const bigInt = 9997000254740991n;
-const alsoBigInt = BigInt("1234567890123456789012345678901234567890")
+const copy2 = { ...workingObject };
 
-//#6
-console.log( "B" + "a" + (1 - "hello")); //'Banan'
-console.log((true && 3) + "d"); //'3d'
-console.log(Boolean(true && 3) + "d"); //'trued'
-console.log(NaN + 1) //NaN
-console.log(NaN + 'o') //'NaNo'
-console.log(undefined + 1) //NaN
-console.log(undefined - 1) //NaN
-console.log(null + 1) //1
-console.log(null / 5) //0
-console.log(5 / undefined) //NaN
-console.log(-5 / null) //-Infinity
-console.log(null == 0) //false
-console.log(null == '') //false
-console.log(null > 0) //false
-console.log(null >= 0) //true
-console.log(null == '') //false
-console.log('foo' + + 'bar') //'fooNaN'
-console.log('11' + '1' - 1) //110
-console.log(typeof Object) //function
-console.log(typeof Math) //object
-console.log(new String('foo')=='foo') //true
-console.log(new String('foo')==='foo') //false
+const copy3 = JSON.parse(JSON.stringify(workingObject));
+//#3
+function makeCounter() {
+    let count = 0;
+    return function() {
+        count++;
+    }
+};
+
+const makeCounter = () => {
+    let count = 0;
+    return () => count++;
+};
+
+const makeCounter = (function() {
+    let count = 0;
+    return function() {
+        return count++; 
+    };
+})();
+//доп №1 см. файл isEqual
+
+//доп №2
+function reverseStr(str) {
+    return str.split('').reverse().join('');
+}
